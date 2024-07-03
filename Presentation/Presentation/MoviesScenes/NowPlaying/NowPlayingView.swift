@@ -24,9 +24,9 @@ struct NowPlayingView: View {
             .onAppear {
                 viewModel.fetchNowPlayingMovies()
             }
-//            .alert(isPresented: $viewModel.showError) {
-//                Alert(title: Text("Error"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
-//            }
+            .alert(isPresented: $viewModel.showError) {
+                Alert(title: Text("Error"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
+            }
         }
     }
 }

@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-import Foundation
 import Combine
 import Domain
 
@@ -16,6 +14,7 @@ final class UpcomingViewModel: ObservableObject {
     
     @Published var movies: [Movie] = []
     @Published var errorMessage: String?
+    @Published var showError = false
     
     private let upcomingMoviesUseCase: UpcomingMoviesUseCase
     
@@ -24,13 +23,14 @@ final class UpcomingViewModel: ObservableObject {
     }
     
     func fetchUpcomingMovies() {
+        self.showError = false
         Task {
             do {
-                
                 let moviesPage = try await upcomingMoviesUseCase.execute(page: 1)
                 self.movies = moviesPage.movies
             } catch {
                 self.errorMessage = error.localizedDescription
+                self.showError = true
             }
         }
     }

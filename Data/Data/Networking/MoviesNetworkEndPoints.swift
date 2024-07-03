@@ -8,14 +8,14 @@
 import Foundation
 import Networking
 
-enum NetworkEndPoints {
+enum MoviesNetworkEndPoints {
     case nowPlaying(page: Int)
     case popular(page: Int)
     case upcomingMovies(page: Int)
     case movieDetails(movieID: Int)
 }
 
-extension NetworkEndPoints: Endpoint {
+extension MoviesNetworkEndPoints: Endpoint {
     
     public var baseURL: String {
         return NetworkAppConfiguration.shared.apiBaseURL

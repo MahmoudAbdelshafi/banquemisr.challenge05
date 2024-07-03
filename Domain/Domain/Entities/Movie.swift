@@ -20,3 +20,14 @@ public struct Movie {
         self.posterURL = posterURL
     }
 }
+
+extension Movie: Equatable {
+    
+    public static func ==(lhs: Movie, rhs: Movie) -> Bool {
+        return lhs.id == rhs.id &&
+        lhs.title == rhs.title &&
+        lhs.releaseDate == rhs.releaseDate &&
+        lhs.posterURL == rhs.posterURL
+    }
+   
+}

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 public protocol MovieDetailsUseCase {
     func execute(movieID: Int) async throws -> MovieDetails
 }

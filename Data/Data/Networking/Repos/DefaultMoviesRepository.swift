@@ -19,19 +19,19 @@ public class DefaultMoviesRepository: MoviesRepository {
     }
 
     public func fetchNowPlayingMovies(page: Int) async throws -> MoviesPage {
-        return try await fetchMovies(endpoint: NetworkEndPoints.nowPlaying(page: page))
+        return try await fetchMovies(endpoint: MoviesNetworkEndPoints.nowPlaying(page: page))
     }
 
     public func fetchPopularMovies(page: Int) async throws -> MoviesPage {
-        return try await fetchMovies(endpoint: NetworkEndPoints.popular(page: page))
+        return try await fetchMovies(endpoint: MoviesNetworkEndPoints.popular(page: page))
     }
 
     public func fetchUpcomingMovies(page: Int) async throws -> MoviesPage {
-        return try await fetchMovies(endpoint: NetworkEndPoints.upcomingMovies(page: page))
+        return try await fetchMovies(endpoint: MoviesNetworkEndPoints.upcomingMovies(page: page))
     }
 
     public func fetchMovieDetails(movieID: Int) async throws -> MovieDetails {
-        return try await fetchMovie(endpoint: NetworkEndPoints.movieDetails(movieID: movieID))
+        return try await fetchMovie(endpoint: MoviesNetworkEndPoints.movieDetails(movieID: movieID))
     }
 
     private func fetchMovies(endpoint: Endpoint) async throws -> MoviesPage {

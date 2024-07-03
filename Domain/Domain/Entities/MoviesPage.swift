@@ -7,10 +7,6 @@
 
 import Foundation
 
-public struct MovieQuery: Equatable {
-    let query: String
-}
-
 public struct MoviesPage {
     public let page: Int
     public let totalResults: Int

@@ -8,28 +8,29 @@
 import Foundation
 import Domain
 
+@MainActor
 final class NowPlayingViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var errorMessage: String?
-
+    @Published var showError = false
+    
     private let nowPlayingMoviesUseCase: NowPlayingMoviesUseCase
-
+    
     init(nowPlayingMoviesUseCase: NowPlayingMoviesUseCase) {
         self.nowPlayingMoviesUseCase = nowPlayingMoviesUseCase
     }
-
+    
     func fetchNowPlayingMovies(page: Int = 1) {
+        showError = false
         Task {
             do {
                 let moviesPage = try await nowPlayingMoviesUseCase.execute(page: page)
-                DispatchQueue.main.async {
-                    self.movies = moviesPage.movies
-                }
+                self.movies = moviesPage.movies
             } catch {
-                DispatchQueue.main.async {
-                    self.errorMessage = error.localizedDescription
-                }
+                self.errorMessage = error.localizedDescription
+                self.showError = true
             }
         }
     }
+    
 }

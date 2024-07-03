@@ -8,27 +8,27 @@
 import Foundation
 import Domain
 
+@MainActor
 final class PopularViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var errorMessage: String?
-
+    @Published var showError = false
+    
     private let popularMoviesUseCase: PopularMoviesUseCase
-
+    
     init(popularMoviesUseCase: PopularMoviesUseCase) {
         self.popularMoviesUseCase = popularMoviesUseCase
     }
-
+    
     func fetchPopularMovies(page: Int = 1) {
+        showError = false
         Task {
             do {
                 let moviesPage = try await popularMoviesUseCase.execute(page: page)
-                DispatchQueue.main.async {
-                    self.movies = moviesPage.movies
-                }
+                self.movies = moviesPage.movies
             } catch {
-                DispatchQueue.main.async {
-                    self.errorMessage = error.localizedDescription
-                }
+                self.errorMessage = error.localizedDescription
+                self.showError = true
             }
         }
     }

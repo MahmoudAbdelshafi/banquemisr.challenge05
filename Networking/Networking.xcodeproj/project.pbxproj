@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E589CC9A2C347BFD00BA4430 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC992C347BFD00BA4430 /* MockURLProtocol.swift */; };
+		E589CC9C2C347C2400BA4430 /* TMDbNetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC9B2C347C2400BA4430 /* TMDbNetworkServiceTests.swift */; };
+		E589CC9E2C347DD300BA4430 /* MockNetworkEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC9D2C347DD300BA4430 /* MockNetworkEndPoints.swift */; };
+		E589CCA02C34C4FB00BA4430 /* MockAPIBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC9F2C34C4FB00BA4430 /* MockAPIBaseResponse.swift */; };
 		E5EED5F32C32DFFB00CBB5A5 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EED5EA2C32DFFB00CBB5A5 /* Networking.framework */; };
-		E5EED5F82C32DFFB00CBB5A5 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EED5F72C32DFFB00CBB5A5 /* NetworkingTests.swift */; };
 		E5EED5F92C32DFFB00CBB5A5 /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EED5ED2C32DFFB00CBB5A5 /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5EED6E92C32F11200CBB5A5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EED6E82C32F11200CBB5A5 /* NetworkService.swift */; };
 		E5EED6EB2C32F15400CBB5A5 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EED6EA2C32F15400CBB5A5 /* Endpoint.swift */; };
@@ -26,10 +29,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E589CC992C347BFD00BA4430 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		E589CC9B2C347C2400BA4430 /* TMDbNetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDbNetworkServiceTests.swift; sourceTree = "<group>"; };
+		E589CC9D2C347DD300BA4430 /* MockNetworkEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkEndPoints.swift; sourceTree = "<group>"; };
+		E589CC9F2C34C4FB00BA4430 /* MockAPIBaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIBaseResponse.swift; sourceTree = "<group>"; };
 		E5EED5EA2C32DFFB00CBB5A5 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EED5ED2C32DFFB00CBB5A5 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		E5EED5F22C32DFFB00CBB5A5 /* NetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5EED5F72C32DFFB00CBB5A5 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		E5EED6E82C32F11200CBB5A5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E5EED6EA2C32F15400CBB5A5 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		E5EED6F02C32F1A800CBB5A5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -86,7 +92,10 @@
 		E5EED5F62C32DFFB00CBB5A5 /* NetworkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				E5EED5F72C32DFFB00CBB5A5 /* NetworkingTests.swift */,
+				E589CC992C347BFD00BA4430 /* MockURLProtocol.swift */,
+				E589CC9B2C347C2400BA4430 /* TMDbNetworkServiceTests.swift */,
+				E589CC9D2C347DD300BA4430 /* MockNetworkEndPoints.swift */,
+				E589CC9F2C34C4FB00BA4430 /* MockAPIBaseResponse.swift */,
 			);
 			path = NetworkingTests;
 			sourceTree = "<group>";
@@ -211,7 +220,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5EED5F82C32DFFB00CBB5A5 /* NetworkingTests.swift in Sources */,
+				E589CC9C2C347C2400BA4430 /* TMDbNetworkServiceTests.swift in Sources */,
+				E589CC9E2C347DD300BA4430 /* MockNetworkEndPoints.swift in Sources */,
+				E589CCA02C34C4FB00BA4430 /* MockAPIBaseResponse.swift in Sources */,
+				E589CC9A2C347BFD00BA4430 /* MockURLProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

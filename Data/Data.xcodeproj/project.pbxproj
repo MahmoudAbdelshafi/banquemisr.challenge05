@@ -10,10 +10,11 @@
 		E589CC8C2C34567200BA4430 /* MovieDetailsResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC8B2C34567200BA4430 /* MovieDetailsResponseDTO.swift */; };
 		E589CC922C346ECA00BA4430 /* DefaultMoviesRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC912C346ECA00BA4430 /* DefaultMoviesRepositoryTests.swift */; };
 		E589CC962C346FB700BA4430 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC952C346FB700BA4430 /* MockNetworkService.swift */; };
+		E589CC982C34744600BA4430 /* MockBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC972C34744600BA4430 /* MockBundle.swift */; };
 		E5EED8172C331D5900CBB5A5 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EED80E2C331D5900CBB5A5 /* Data.framework */; };
-		E5EED81C2C331D5900CBB5A5 /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EED81B2C331D5900CBB5A5 /* DataTests.swift */; };
+		E5EED81C2C331D5900CBB5A5 /* NetworkAppConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EED81B2C331D5900CBB5A5 /* NetworkAppConfigurationTests.swift */; };
 		E5EED81D2C331D5900CBB5A5 /* Data.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EED8112C331D5900CBB5A5 /* Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5EED8282C331D9500CBB5A5 /* NetworkEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EED8272C331D9500CBB5A5 /* NetworkEndPoints.swift */; };
+		E5EED8282C331D9500CBB5A5 /* MoviesNetworkEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EED8272C331D9500CBB5A5 /* MoviesNetworkEndPoints.swift */; };
 		E5EED82C2C331DA100CBB5A5 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EED82A2C331DA100CBB5A5 /* Domain.framework */; };
 		E5EED82D2C331DA100CBB5A5 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5EED82A2C331DA100CBB5A5 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5EED82E2C331DA100CBB5A5 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EED82B2C331DA100CBB5A5 /* Networking.framework */; };
@@ -52,11 +53,12 @@
 		E589CC8B2C34567200BA4430 /* MovieDetailsResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsResponseDTO.swift; sourceTree = "<group>"; };
 		E589CC912C346ECA00BA4430 /* DefaultMoviesRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMoviesRepositoryTests.swift; sourceTree = "<group>"; };
 		E589CC952C346FB700BA4430 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		E589CC972C34744600BA4430 /* MockBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBundle.swift; sourceTree = "<group>"; };
 		E5EED80E2C331D5900CBB5A5 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EED8112C331D5900CBB5A5 /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		E5EED8162C331D5900CBB5A5 /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5EED81B2C331D5900CBB5A5 /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
-		E5EED8272C331D9500CBB5A5 /* NetworkEndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEndPoints.swift; sourceTree = "<group>"; };
+		E5EED81B2C331D5900CBB5A5 /* NetworkAppConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAppConfigurationTests.swift; sourceTree = "<group>"; };
+		E5EED8272C331D9500CBB5A5 /* MoviesNetworkEndPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesNetworkEndPoints.swift; sourceTree = "<group>"; };
 		E5EED82A2C331DA100CBB5A5 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EED82B2C331DA100CBB5A5 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EED8332C331E0000CBB5A5 /* Presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				E589CC952C346FB700BA4430 /* MockNetworkService.swift */,
+				E589CC972C34744600BA4430 /* MockBundle.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -137,7 +140,7 @@
 			children = (
 				E589CC942C346FAB00BA4430 /* Mocks */,
 				E589CC932C346ECC00BA4430 /* ReposTests */,
-				E5EED81B2C331D5900CBB5A5 /* DataTests.swift */,
+				E5EED81B2C331D5900CBB5A5 /* NetworkAppConfigurationTests.swift */,
 			);
 			path = DataTests;
 			sourceTree = "<group>";
@@ -147,7 +150,7 @@
 			children = (
 				E5EED8442C332AD200CBB5A5 /* DTOs */,
 				E5EED83F2C33224000CBB5A5 /* Repos */,
-				E5EED8272C331D9500CBB5A5 /* NetworkEndPoints.swift */,
+				E5EED8272C331D9500CBB5A5 /* MoviesNetworkEndPoints.swift */,
 				E5EED83C2C3320F200CBB5A5 /* NetworkConfiguration.swift */,
 			);
 			path = Networking;
@@ -291,7 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5EED8282C331D9500CBB5A5 /* NetworkEndPoints.swift in Sources */,
+				E5EED8282C331D9500CBB5A5 /* MoviesNetworkEndPoints.swift in Sources */,
 				E5EED83D2C3320F200CBB5A5 /* NetworkConfiguration.swift in Sources */,
 				E5EED8432C3328C000CBB5A5 /* DefaultMoviesRepository.swift in Sources */,
 				E589CC8C2C34567200BA4430 /* MovieDetailsResponseDTO.swift in Sources */,
@@ -305,7 +308,8 @@
 			files = (
 				E589CC962C346FB700BA4430 /* MockNetworkService.swift in Sources */,
 				E589CC922C346ECA00BA4430 /* DefaultMoviesRepositoryTests.swift in Sources */,
-				E5EED81C2C331D5900CBB5A5 /* DataTests.swift in Sources */,
+				E5EED81C2C331D5900CBB5A5 /* NetworkAppConfigurationTests.swift in Sources */,
+				E589CC982C34744600BA4430 /* MockBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +448,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				API_BASE_URL = "https://api.themoviedb.org/3/";
+				API_KEY = 840d9830ce5ea69425c3f231dbc1f7b3;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -489,6 +495,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				API_BASE_URL = "https://api.themoviedb.org/3/";
+				API_KEY = 840d9830ce5ea69425c3f231dbc1f7b3;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

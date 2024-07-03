@@ -14,6 +14,7 @@ final class MovieDetailsViewModel: ObservableObject {
     @Published var movieDetails: MovieDetails?
     @Published var errorMessage: String?
     @Published var movieID: Int
+    @Published var showError = false
     
     private let movieDetailsUseCase: MovieDetailsUseCase
     private var cancellables = Set<AnyCancellable>()
@@ -25,12 +26,14 @@ final class MovieDetailsViewModel: ObservableObject {
     }
     
     func fetchMovieDetails() {
+        showError = false
         Task {
             do {
                 let details = try await movieDetailsUseCase.execute(movieID: movieID)
                 self.movieDetails = details
             } catch {
                 self.errorMessage = error.localizedDescription
+                self.showError = true
             }
         }
     }

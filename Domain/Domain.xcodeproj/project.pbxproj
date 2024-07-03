@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		E589CC8A2C34557200BA4430 /* MovieDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC892C34557200BA4430 /* MovieDetailsUseCase.swift */; };
 		E589CC8E2C3456AA00BA4430 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC8D2C3456AA00BA4430 /* MovieDetails.swift */; };
+		E589CCA32C34E81000BA4430 /* MockMoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CCA22C34E81000BA4430 /* MockMoviesRepository.swift */; };
+		E589CCA62C34E86300BA4430 /* DefaultMovieDetailsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CCA52C34E86300BA4430 /* DefaultMovieDetailsUseCaseTests.swift */; };
 		E5EED70A2C32F56D00CBB5A5 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5EED7012C32F56D00CBB5A5 /* Domain.framework */; };
-		E5EED70F2C32F56D00CBB5A5 /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EED70E2C32F56D00CBB5A5 /* DomainTests.swift */; };
 		E5EED7102C32F56D00CBB5A5 /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EED7042C32F56D00CBB5A5 /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5EED71D2C32F5D300CBB5A5 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EED71C2C32F5D300CBB5A5 /* Movie.swift */; };
 		E5EED71F2C32F61600CBB5A5 /* MoviesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EED71E2C32F61600CBB5A5 /* MoviesPage.swift */; };
@@ -33,10 +34,11 @@
 /* Begin PBXFileReference section */
 		E589CC892C34557200BA4430 /* MovieDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsUseCase.swift; sourceTree = "<group>"; };
 		E589CC8D2C3456AA00BA4430 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
+		E589CCA22C34E81000BA4430 /* MockMoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoviesRepository.swift; sourceTree = "<group>"; };
+		E589CCA52C34E86300BA4430 /* DefaultMovieDetailsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieDetailsUseCaseTests.swift; sourceTree = "<group>"; };
 		E5EED7012C32F56D00CBB5A5 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EED7042C32F56D00CBB5A5 /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		E5EED7092C32F56D00CBB5A5 /* DomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5EED70E2C32F56D00CBB5A5 /* DomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTests.swift; sourceTree = "<group>"; };
 		E5EED71C2C32F5D300CBB5A5 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		E5EED71E2C32F61600CBB5A5 /* MoviesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPage.swift; sourceTree = "<group>"; };
 		E5EED7202C32FDFF00CBB5A5 /* UpcomingMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesUseCase.swift; sourceTree = "<group>"; };
@@ -66,6 +68,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E589CCA12C34E80300BA4430 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				E589CCA22C34E81000BA4430 /* MockMoviesRepository.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		E589CCA42C34E84F00BA4430 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				E589CCA52C34E86300BA4430 /* DefaultMovieDetailsUseCaseTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		E5EED6F72C32F56D00CBB5A5 = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +117,8 @@
 		E5EED70D2C32F56D00CBB5A5 /* DomainTests */ = {
 			isa = PBXGroup;
 			children = (
-				E5EED70E2C32F56D00CBB5A5 /* DomainTests.swift */,
+				E589CCA42C34E84F00BA4430 /* UseCases */,
+				E589CCA12C34E80300BA4430 /* Mocks */,
 			);
 			path = DomainTests;
 			sourceTree = "<group>";
@@ -267,7 +286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5EED70F2C32F56D00CBB5A5 /* DomainTests.swift in Sources */,
+				E589CCA62C34E86300BA4430 /* DefaultMovieDetailsUseCaseTests.swift in Sources */,
+				E589CCA32C34E81000BA4430 /* MockMoviesRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

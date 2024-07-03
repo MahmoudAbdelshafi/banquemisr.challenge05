@@ -24,9 +24,9 @@ struct UpcomingView: View {
             .onAppear {
                 viewModel.fetchUpcomingMovies()
             }
-//            .alert(item: $viewModel.errorMessage) { errorMessage in
-//                Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
-//            }
+            .alert(isPresented: $viewModel.showError) {
+                Alert(title: Text("Error"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
+            }
         }
     }
 }

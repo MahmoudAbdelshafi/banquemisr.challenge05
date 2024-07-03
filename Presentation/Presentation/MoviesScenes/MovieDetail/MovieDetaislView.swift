@@ -65,6 +65,8 @@ struct MovieDetailsView: View {
         .onAppear{
             viewModel.fetchMovieDetails()
         }
+        .navigationViewStyle(StackNavigationViewStyle()) // Optional: Use a specific navigation view style if needed
+                .accessibility(identifier: "MovieDetailsView") // Assigning accessibil
     }
 }
 

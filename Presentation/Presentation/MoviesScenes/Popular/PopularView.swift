@@ -19,14 +19,16 @@ struct PopularView: View {
         NavigationView {
             List(viewModel.movies, id: \.id) { movie in
                 MovieRow(movie: movie)
+                    .accessibilityIdentifier("MovieRow")
             }
+            .accessibilityIdentifier("movieList")
             .navigationTitle("Popular")
             .onAppear {
                 viewModel.fetchPopularMovies()
             }
-//            .alert(isPresented: $viewModel.showError) {
-//                Alert(title: Text("Error"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
-//            }
+            .alert(isPresented: $viewModel.showError) {
+                Alert(title: Text("Error"), message: Text(viewModel.errorMessage ?? ""), dismissButton: .default(Text("OK")))
+            }
         }
     }
 }

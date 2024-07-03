@@ -31,9 +31,24 @@ public class TMDbNetworkService: NetworkService {
         request.httpMethod = endpoint.method.rawValue
         endpoint.headers?.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
         debugPrint(request)
+        
         return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { result -> Data in
+                let response = result.response as? HTTPURLResponse
+                
+                if let response = response, !(200...299).contains(response.statusCode) {
+                    // Attempt to decode error response
+                    if let errorResponse = try? JSONDecoder().decode(TMDbErrorResponse.self, from: result.data) {
+                        throw NetworkError.error(statusCode: response.statusCode, data: result.data, message: errorResponse.statusMessage)
+                    } else {
+                        throw NetworkError.error(statusCode: response.statusCode, data: result.data, message: nil)
+                    }
+                }
+                
+                return result.data
+            }
             .handleEvents(receiveOutput: { output in
-                if let json = try? JSONSerialization.jsonObject(with: output.data, options: .mutableContainers),
+                if let json = try? JSONSerialization.jsonObject(with: output, options: .mutableContainers),
                    let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted),
                    let jsonString = String(data: jsonData, encoding: .utf8) {
                     debugPrint("Received data: \(jsonString)")
@@ -41,19 +56,27 @@ public class TMDbNetworkService: NetworkService {
                     debugPrint("Received data could not be serialized to JSON")
                 }
             })
-            .map(\.data)
             .decode(type: T.self, decoder: JSONDecoder())
             .mapError { error in
-                switch error {
-                case is URLError:
-                    return .requestFailed
-                case is DecodingError:
+                if let networkError = error as? NetworkError {
+                    return networkError
+                } else if let decodingError = error as? DecodingError {
                     return .decodingError
-                default:
+                } else {
                     return .unknown
                 }
             }
             .eraseToAnyPublisher()
+    }
+}
+
+struct TMDbErrorResponse: Decodable {
+    let statusMessage: String
+    let statusCode: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case statusMessage = "status_message"
+        case statusCode = "status_code"
     }
 }
 

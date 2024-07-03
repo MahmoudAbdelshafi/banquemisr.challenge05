@@ -26,3 +26,17 @@ public struct MovieDetails {
         self.runtime = runtime
     }
 }
+
+extension MovieDetails: Equatable {
+    
+    public static func == (lhs: MovieDetails, rhs: MovieDetails) -> Bool {
+        return lhs.id == rhs.id &&
+               lhs.title == rhs.title &&
+               lhs.overview == rhs.overview &&
+               lhs.genres == rhs.genres &&
+               lhs.runtime == rhs.runtime &&
+               lhs.releaseDate == rhs.releaseDate &&
+               lhs.posterURL == rhs.posterURL
+    }
+}
+
