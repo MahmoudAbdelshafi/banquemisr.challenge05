@@ -39,7 +39,7 @@ class TMDbNetworkServiceTests: XCTestCase {
                     XCTFail("Request failed with error: \(error.localizedDescription)")
                 }
             }, receiveValue: { (response: MockAPIBaseResponse) in
-                // Assert on response if needed
+              
             })
         
         wait(for: [expectation], timeout: 5.0)

@@ -11,6 +11,8 @@ public enum NetworkError: Error, LocalizedError {
     case badURL
     case requestFailed
     case decodingError
+    case timeout
+    case noInternet
     case unknown
     case error(statusCode: Int, data: Data?, message: String?)
     
@@ -22,13 +24,16 @@ public enum NetworkError: Error, LocalizedError {
             return "The request failed."
         case .decodingError:
             return "Failed to decode the response."
+        case .timeout:
+            return "The request timed out."
+        case .noInternet:
+            return "No internet connection."
         case .unknown:
             return "An unknown error occurred."
         case .error(let statusCode, _, let message):
             return "Error \(statusCode): \(message ?? "Unknown error")"
         }
     }
-  
 }
 
 //MARK: - Conforming to Equatable for Testing Usage

@@ -22,7 +22,7 @@ enum MockNetworkEndPoints: Endpoint {
     var path: String {
         switch self {
         case .mockEndpoint:
-            return "/movie/now_playing"
+            return "movie/now_playing"
         }
     }
     

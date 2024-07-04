@@ -31,8 +31,20 @@ class DefaultMoviesRepositoryTests: XCTestCase {
     }
 
     func testFetchNowPlayingMoviesSuccess() async {
-        let moviesPage = MoviesPage(page: 1, totalResults: 1, totalPages: 1, movies: [Movie(id: 1, title: "Test Movie", releaseDate: "2022-01-01", posterURL: nil)])
-        let responseDTO = MoviesPageResponseDTO(page: 1, totalResults: 1, totalPages: 1, results: [MovieResponseDTO(id: 1, title: "Test Movie", releaseDate: "2022-01-01", posterPath: nil)])
+        let moviesPage = MoviesPage(page: 1,
+                                    totalResults: 1,
+                                    totalPages: 1,
+                                    movies: [Movie(id: 1,
+                                                   title: "Test Movie",
+                                                   releaseDate: "2022-01-01",
+                                                   posterURL: nil)])
+        let responseDTO = MoviesPageResponseDTO(page: 1,
+                                                totalResults: 1,
+                                                totalPages: 1,
+                                                results: [MovieResponseDTO(id: 1,
+                                                                           title: "Test Movie",
+                                                                           releaseDate: "2022-01-01",
+                                                                           posterPath: nil)])
         
         mockNetworkService.fetchResult = Just(responseDTO)
             .setFailureType(to: NetworkError.self)
@@ -64,8 +76,18 @@ class DefaultMoviesRepositoryTests: XCTestCase {
     // Similar tests for fetchPopularMovies, fetchUpcomingMovies, fetchMovieDetails...
 
     func testFetchMovieDetailsSuccess() async {
-        let movieDetails = MovieDetails(id: 1, title: "Test Movie", releaseDate: "Test Overview", posterURL: URL(string: "zs2S0D4sZMNbOKgs4LyZAxiX9eY.jpg")!, overview: "2022-01-01", genres: [], runtime: nil)
-        let responseDTO = MovieDetailsResponseDTO(id: 1, title: "Test Movie", releaseDate: "Test Overview", posterPath: "zs2S0D4sZMNbOKgs4LyZAxiX9eY.jpg", overview: "2022-01-01", genres: [], runtime: nil)
+        let movieDetails = MovieDetails(id: 1, title: "Test Movie",
+                                        releaseDate: "Test Overview",
+                                        posterURL: URL(string: "zs2S0D4sZMNbOKgs4LyZAxiX9eY.jpg")!,
+                                        overview: "2022-01-01",
+                                        genres: [],
+                                        runtime: nil)
+        let responseDTO = MovieDetailsResponseDTO(id: 1,
+                                                  title: "Test Movie",
+                                                  releaseDate: "Test Overview",
+                                                  posterPath: "zs2S0D4sZMNbOKgs4LyZAxiX9eY.jpg",
+                                                  overview: "2022-01-01",
+                                                  genres: [], runtime: nil)
         
         mockNetworkService.fetchResult = Just(responseDTO)
             .setFailureType(to: NetworkError.self)

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E517E35D2C3623E100235716 /* PopularMoviesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517E35C2C3623E100235716 /* PopularMoviesUseCaseTests.swift */; };
 		E517E35F2C36254D00235716 /* NowPlayingMoviesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517E35E2C36254D00235716 /* NowPlayingMoviesUseCaseTests.swift */; };
+		E517E3612C37332700235716 /* UpcomingMoviesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E517E3602C37332700235716 /* UpcomingMoviesUseCaseTests.swift */; };
 		E589CC8A2C34557200BA4430 /* MovieDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC892C34557200BA4430 /* MovieDetailsUseCase.swift */; };
 		E589CC8E2C3456AA00BA4430 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC8D2C3456AA00BA4430 /* MovieDetails.swift */; };
 		E589CCA32C34E81000BA4430 /* MockMoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CCA22C34E81000BA4430 /* MockMoviesRepository.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		E517E35C2C3623E100235716 /* PopularMoviesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesUseCaseTests.swift; sourceTree = "<group>"; };
 		E517E35E2C36254D00235716 /* NowPlayingMoviesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingMoviesUseCaseTests.swift; sourceTree = "<group>"; };
+		E517E3602C37332700235716 /* UpcomingMoviesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesUseCaseTests.swift; sourceTree = "<group>"; };
 		E589CC892C34557200BA4430 /* MovieDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsUseCase.swift; sourceTree = "<group>"; };
 		E589CC8D2C3456AA00BA4430 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		E589CCA22C34E81000BA4430 /* MockMoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoviesRepository.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				E589CCA52C34E86300BA4430 /* MovieDetailsUseCaseTests.swift */,
 				E517E35C2C3623E100235716 /* PopularMoviesUseCaseTests.swift */,
 				E517E35E2C36254D00235716 /* NowPlayingMoviesUseCaseTests.swift */,
+				E517E3602C37332700235716 /* UpcomingMoviesUseCaseTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				E589CCA62C34E86300BA4430 /* MovieDetailsUseCaseTests.swift in Sources */,
 				E589CCA32C34E81000BA4430 /* MockMoviesRepository.swift in Sources */,
 				E517E35D2C3623E100235716 /* PopularMoviesUseCaseTests.swift in Sources */,
+				E517E3612C37332700235716 /* UpcomingMoviesUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

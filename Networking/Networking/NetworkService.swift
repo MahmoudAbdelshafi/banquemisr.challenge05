@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import os
 
 public protocol NetworkService {
     func fetch<T: Decodable>(endpoint: Endpoint) -> AnyPublisher<T, NetworkError>
@@ -14,61 +15,83 @@ public protocol NetworkService {
 
 public class TMDbNetworkService: NetworkService {
     
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "co.mahmoud.TMDB", category: "networking")
+    
     public init() {}
     
     public func fetch<T: Decodable>(endpoint: Endpoint) -> AnyPublisher<T, NetworkError> {
+        guard let request = buildRequest(for: endpoint) else {
+            return Fail(error: NetworkError.badURL).eraseToAnyPublisher()
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { result in
+                try self.handleResponse(result)
+            }
+            .handleEvents(receiveOutput: { output in
+                self.logResponseData(output)
+            })
+            .decode(type: T.self, decoder: JSONDecoder())
+            .mapError { self.mapError($0) }
+            .eraseToAnyPublisher()
+    }
+    
+    private func buildRequest(for endpoint: Endpoint) -> URLRequest? {
         guard var components = URLComponents(string: endpoint.baseURL + endpoint.path) else {
-            return Fail(error: NetworkError.badURL).eraseToAnyPublisher()
+            return nil
         }
-        
         components.queryItems = endpoint.queryItems
-        
         guard let url = components.url else {
-            return Fail(error: NetworkError.badURL).eraseToAnyPublisher()
+            return nil
         }
-        
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         endpoint.headers?.forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
-        debugPrint(request)
-        
-        return URLSession.shared.dataTaskPublisher(for: request)
-            .tryMap { result -> Data in
-                let response = result.response as? HTTPURLResponse
-                
-                if let response = response, !(200...299).contains(response.statusCode) {
-                    // Attempt to decode error response
-                    if let errorResponse = try? JSONDecoder().decode(TMDbErrorResponse.self, from: result.data) {
-                        throw NetworkError.error(statusCode: response.statusCode, data: result.data, message: errorResponse.statusMessage)
-                    } else {
-                        throw NetworkError.error(statusCode: response.statusCode, data: result.data, message: nil)
-                    }
-                }
-                
-                return result.data
+        return request
+    }
+    
+    private func handleResponse(_ result: URLSession.DataTaskPublisher.Output) throws -> Data {
+        let response = result.response as? HTTPURLResponse
+        if let response = response, !(200...299).contains(response.statusCode) {
+            if let errorResponse = try? JSONDecoder().decode(TMDbErrorResponse.self, from: result.data) {
+                throw NetworkError.error(statusCode: response.statusCode, data: result.data, message: errorResponse.statusMessage)
+            } else {
+                throw NetworkError.error(statusCode: response.statusCode, data: result.data, message: nil)
             }
-            .handleEvents(receiveOutput: { output in
-                if let json = try? JSONSerialization.jsonObject(with: output, options: .mutableContainers),
-                   let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted),
-                   let jsonString = String(data: jsonData, encoding: .utf8) {
-                    debugPrint("Received data: \(jsonString)")
-                } else {
-                    debugPrint("Received data could not be serialized to JSON")
-                }
-            })
-            .decode(type: T.self, decoder: JSONDecoder())
-            .mapError { error in
-                if let networkError = error as? NetworkError {
-                    return networkError
-                } else if let decodingError = error as? DecodingError {
-                    return .decodingError
-                } else {
-                    return .unknown
-                }
+        }
+        return result.data
+    }
+    
+    private func logResponseData(_ data: Data) {
+        if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers),
+           let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            logger.debug("Received data: \(jsonString)")
+        } else {
+            logger.debug("Received data could not be serialized to JSON")
+        }
+    }
+    
+    private func mapError(_ error: Error) -> NetworkError {
+        if let networkError = error as? NetworkError {
+            return networkError
+        } else if let decodingError = error as? DecodingError {
+            return .decodingError
+        } else if (error as NSError).domain == NSURLErrorDomain {
+            switch (error as NSError).code {
+            case NSURLErrorNotConnectedToInternet:
+                return .noInternet
+            case NSURLErrorTimedOut:
+                return .timeout
+            default:
+                return .requestFailed
             }
-            .eraseToAnyPublisher()
+        } else {
+            return .unknown
+        }
     }
 }
+
 
 struct TMDbErrorResponse: Decodable {
     let statusMessage: String
