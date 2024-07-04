@@ -7,8 +7,6 @@
 
 import XCTest
 
-import XCTest
-
 class PopularViewUITests: XCTestCase {
     
     var app: XCUIApplication!

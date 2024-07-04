@@ -28,13 +28,13 @@ extension MoviesNetworkEndPoints: Endpoint {
     var path: String {
         switch self {
         case .nowPlaying:
-            return "/movie/now_playing"
+            return "movie/now_playing"
         case .popular:
-            return "/movie/popular"
+            return "movie/popular"
         case .upcomingMovies:
-            return "/movie/upcoming"
+            return "movie/upcoming"
         case .movieDetails(let movieID):
-            return "/movie/\(movieID)"
+            return "movie/\(movieID)"
         }
     }
 
