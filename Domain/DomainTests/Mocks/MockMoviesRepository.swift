@@ -12,14 +12,8 @@ import XCTest
 
 class MockMoviesRepository: MoviesRepository {
     var result: Result<MovieDetails, Error>?
-
-    func fetchNowPlayingMovies(page: Int) async throws -> MoviesPage {
-        throw NSError(domain: "", code: -1, userInfo: nil)
-    }
-
-    func fetchPopularMovies(page: Int) async throws -> MoviesPage {
-        throw NSError(domain: "", code: -1, userInfo: nil)
-    }
+    var popularMoviesResult: Result<MoviesPage, Error>!
+    var nowPlayingMovies: Result<MoviesPage, Error>?
 
     func fetchUpcomingMovies(page: Int) async throws -> MoviesPage {
         throw NSError(domain: "", code: -1, userInfo: nil)
@@ -37,4 +31,28 @@ class MockMoviesRepository: MoviesRepository {
             throw NSError(domain: "", code: -1, userInfo: nil)
         }
     }
+    
+    func fetchPopularMovies(page: Int) async throws -> MoviesPage {
+        switch popularMoviesResult {
+        case .success(let moviesPage):
+            return moviesPage
+        case .failure(let error):
+            throw error
+        case .none:
+            fatalError("popularMoviesResult not set")
+        }
+    }
+
+   func fetchNowPlayingMovies(page: Int) async throws -> MoviesPage {
+        if let result = nowPlayingMovies {
+            switch result {
+            case .success(let moviesPage):
+                return moviesPage
+            case .failure(let error):
+                throw error
+            }
+        }
+        throw NSError(domain: "No Result Set", code: -1, userInfo: nil)
+    }
+
 }

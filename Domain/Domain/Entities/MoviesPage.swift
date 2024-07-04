@@ -27,3 +27,8 @@ public struct MoviesPage {
         self.movies = movies
     }
 }
+
+extension MoviesPage: Equatable {
+    
+    
+}
