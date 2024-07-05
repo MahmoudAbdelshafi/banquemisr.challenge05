@@ -16,4 +16,7 @@
    <FileRef
       location = "group:Networking/Networking.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:/Users/mahmoudabdelshafi/Desktop/SideProjects/TMDB/Cache/Caching.xcodeproj">
+   </FileRef>
 </Workspace>

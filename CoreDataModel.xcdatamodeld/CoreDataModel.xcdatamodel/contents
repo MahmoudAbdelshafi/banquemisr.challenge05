@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CachedMovie" representedClassName="CachedMovie" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="posterURL" optional="YES" attributeType="String"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CachedMoviesPage" representedClassName="CachedMoviesPage" parentEntity="CachedMovie" syncable="YES">
+        <attribute name="page" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="totalPages" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="totalResults" attributeType="Integer 32" defaultValueString="0"/>
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CachedMovie"/>
+    </entity>
+</model>

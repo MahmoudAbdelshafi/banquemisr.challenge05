@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E521C5852C382B2C00570493 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E521C5842C382B2C00570493 /* Cache.framework */; };
+		E521C5862C382B2C00570493 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E521C5842C382B2C00570493 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E589CC902C3457A000BA4430 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CC8F2C3457A000BA4430 /* MovieDetailsViewModel.swift */; };
 		E589CCAA2C358FD800BA4430 /* MockPopularMoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CCA92C358FD800BA4430 /* MockPopularMoviesUseCase.swift */; };
 		E589CCB52C3595EB00BA4430 /* PopularViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E589CCB42C3595EB00BA4430 /* PopularViewUITests.swift */; };
@@ -50,6 +52,7 @@
 			files = (
 				E5EED8512C3356A500CBB5A5 /* Data.framework in Embed Frameworks */,
 				E5EED84D2C3355F200CBB5A5 /* Domain.framework in Embed Frameworks */,
+				E521C5862C382B2C00570493 /* Cache.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E521C5842C382B2C00570493 /* Cache.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cache.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E589CC8F2C3457A000BA4430 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		E589CCA92C358FD800BA4430 /* MockPopularMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPopularMoviesUseCase.swift; sourceTree = "<group>"; };
 		E589CCB22C3595EB00BA4430 /* PresentaionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PresentaionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,7 @@
 			files = (
 				E5EED8502C3356A500CBB5A5 /* Data.framework in Frameworks */,
 				E5EED84C2C3355F200CBB5A5 /* Domain.framework in Frameworks */,
+				E521C5852C382B2C00570493 /* Cache.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +205,7 @@
 		E5EED84A2C3355F200CBB5A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E521C5842C382B2C00570493 /* Cache.framework */,
 				E5EED84F2C3356A500CBB5A5 /* Data.framework */,
 				E5EED84B2C3355F200CBB5A5 /* Domain.framework */,
 			);
