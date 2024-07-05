@@ -53,7 +53,7 @@ public class TMDbNetworkService: NetworkService {
     private func handleResponse(_ result: URLSession.DataTaskPublisher.Output) throws -> Data {
         let response = result.response as? HTTPURLResponse
         if let response = response, !(200...299).contains(response.statusCode) {
-            if let errorResponse = try? JSONDecoder().decode(TMDbErrorResponse.self, from: result.data) {
+            if let errorResponse = try? JSONDecoder().decode(NetworkServiceErrorResponse.self, from: result.data) {
                 throw NetworkError.error(statusCode: response.statusCode, data: result.data, message: errorResponse.statusMessage)
             } else {
                 throw NetworkError.error(statusCode: response.statusCode, data: result.data, message: nil)
@@ -93,7 +93,7 @@ public class TMDbNetworkService: NetworkService {
 }
 
 
-struct TMDbErrorResponse: Decodable {
+struct NetworkServiceErrorResponse: Decodable {
     let statusMessage: String
     let statusCode: Int
     
