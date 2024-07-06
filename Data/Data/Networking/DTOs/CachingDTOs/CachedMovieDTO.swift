@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Cache
+import Caching
 import Domain
 import CoreData
 

@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct UpcomingView: View {
+public struct UpcomingView: View {
     
     @StateObject private var viewModel: UpcomingViewModel
     
-    init(viewModel: UpcomingViewModel) {
+    public init(viewModel: UpcomingViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
-    var body: some View {
+    public var body: some View {
         NavigationView {
             List(viewModel.movies, id: \.id) { movie in
                 MovieRow(movie: movie)

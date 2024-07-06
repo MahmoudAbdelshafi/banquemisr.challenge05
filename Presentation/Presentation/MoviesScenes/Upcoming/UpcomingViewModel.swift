@@ -10,7 +10,7 @@ import Combine
 import Domain
 
 @MainActor
-final class UpcomingViewModel: ObservableObject {
+public final class UpcomingViewModel: ObservableObject {
     
     @Published var movies: [Movie] = []
     @Published var errorMessage: String?
@@ -18,7 +18,7 @@ final class UpcomingViewModel: ObservableObject {
     
     private let upcomingMoviesUseCase: UpcomingMoviesUseCase
     
-    init(upcomingMoviesUseCase: UpcomingMoviesUseCase) {
+    public init(upcomingMoviesUseCase: UpcomingMoviesUseCase) {
         self.upcomingMoviesUseCase = upcomingMoviesUseCase
     }
     

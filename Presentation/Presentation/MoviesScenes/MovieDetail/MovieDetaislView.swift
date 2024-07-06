@@ -11,16 +11,16 @@ import SwiftUI
 import Data
 import Networking
 
-struct MovieDetailsView: View {
+public struct MovieDetailsView: View {
     @StateObject private var viewModel: MovieDetailsViewModel
         
-        init(movieID: Int, movieDetailsUseCase: MovieDetailsUseCase) {
+    public init(movieID: Int, movieDetailsUseCase: MovieDetailsUseCase) {
             let viewModel = MovieDetailsViewModel(movieDetailsUseCase: movieDetailsUseCase, movieID: movieID)
             _viewModel = StateObject(wrappedValue: viewModel)
         }
         
     
-    var body: some View {
+    public var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 16) {
                 AsyncCachedImage(url: viewModel.movieDetails?.posterURL) { image in

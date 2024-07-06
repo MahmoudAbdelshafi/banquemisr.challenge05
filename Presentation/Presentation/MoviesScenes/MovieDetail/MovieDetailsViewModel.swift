@@ -10,7 +10,7 @@ import Foundation
 import Domain
 
 @MainActor
-final class MovieDetailsViewModel: ObservableObject {
+public final class MovieDetailsViewModel: ObservableObject {
     @Published var movieDetails: MovieDetails?
     @Published var errorMessage: String?
     @Published var movieID: Int
@@ -19,7 +19,7 @@ final class MovieDetailsViewModel: ObservableObject {
     private let movieDetailsUseCase: MovieDetailsUseCase
     private var cancellables = Set<AnyCancellable>()
     
-    init(movieDetailsUseCase: MovieDetailsUseCase,
+    public init(movieDetailsUseCase: MovieDetailsUseCase,
          movieID: Int) {
         self.movieDetailsUseCase = movieDetailsUseCase
         self.movieID = movieID

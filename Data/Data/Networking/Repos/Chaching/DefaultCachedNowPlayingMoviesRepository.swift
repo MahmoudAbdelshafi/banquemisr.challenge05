@@ -9,8 +9,7 @@ import CoreData
 import Combine
 import Domain
 import CoreData
-import Cache
-
+import Caching
 
 public class DefaultCachedNowPlayingMoviesRepository: CachedNowPlayingMoviesRepository {
     

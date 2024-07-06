@@ -7,16 +7,17 @@
 
 import Foundation
 import Domain
+import Combine
 
 @MainActor
-final class NowPlayingViewModel: ObservableObject {
+public final class NowPlayingViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var errorMessage: String?
     @Published var showError = false
     
     private let nowPlayingMoviesUseCase: NowPlayingMoviesUseCase
     
-    init(nowPlayingMoviesUseCase: NowPlayingMoviesUseCase) {
+    public init(nowPlayingMoviesUseCase: NowPlayingMoviesUseCase) {
         self.nowPlayingMoviesUseCase = nowPlayingMoviesUseCase
     }
     
@@ -32,5 +33,4 @@ final class NowPlayingViewModel: ObservableObject {
             }
         }
     }
-    
 }

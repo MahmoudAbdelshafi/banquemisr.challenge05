@@ -12,7 +12,7 @@ import Presentation
 struct TMDBApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainContentView()
         }
     }
 }

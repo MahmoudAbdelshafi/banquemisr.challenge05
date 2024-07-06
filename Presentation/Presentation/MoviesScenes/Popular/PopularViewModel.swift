@@ -7,16 +7,17 @@
 
 import Foundation
 import Domain
+import Combine
 
 @MainActor
-final class PopularViewModel: ObservableObject {
+public final class PopularViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var errorMessage: String?
     @Published var showError = false
     
     private let popularMoviesUseCase: PopularMoviesUseCase
     
-    init(popularMoviesUseCase: PopularMoviesUseCase) {
+    public init(popularMoviesUseCase: PopularMoviesUseCase) {
         self.popularMoviesUseCase = popularMoviesUseCase
     }
     
