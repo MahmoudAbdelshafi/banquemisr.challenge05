@@ -12,15 +12,21 @@ import Domain
 @MainActor
 public final class UpcomingViewModel: ObservableObject {
     
+    //MARK: - Properties -
+    
     @Published var movies: [Movie] = []
     @Published var errorMessage: String?
     @Published var showError = false
     
     private let upcomingMoviesUseCase: UpcomingMoviesUseCase
     
+    //MARK: - Init -
+    
     public init(upcomingMoviesUseCase: UpcomingMoviesUseCase) {
         self.upcomingMoviesUseCase = upcomingMoviesUseCase
     }
+    
+    //MARK: - Functions -
     
     func fetchUpcomingMovies() {
         self.showError = false

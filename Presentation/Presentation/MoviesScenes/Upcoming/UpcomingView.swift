@@ -9,11 +9,17 @@ import SwiftUI
 
 public struct UpcomingView: View {
     
+    //MARK: - Properties -
+    
     @StateObject private var viewModel: UpcomingViewModel
+    
+    //MARK: - Init -
     
     public init(viewModel: UpcomingViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
+    
+    //MARK: - Body -
     
     public var body: some View {
         NavigationView {

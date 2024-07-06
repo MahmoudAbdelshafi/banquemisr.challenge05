@@ -12,9 +12,10 @@ public struct MoviesPage {
     public let totalResults: Int
     public let totalPages: Int
     public let movies: [Movie]
+    public var hasMorePages = true
     
     public enum CodingKeys: String, CodingKey {
-        case page
+        case page, hasMorePages
         case totalResults = "total_results"
         case totalPages = "total_pages"
         case movies = "results"
@@ -25,6 +26,18 @@ public struct MoviesPage {
         self.totalResults = totalResults
         self.totalPages = totalPages
         self.movies = movies
+    }
+    
+    public init() {
+           self.page = 1
+           self.totalResults = 0
+           self.totalPages = 2
+           self.movies = []
+           self.hasMorePages = true
+       }
+    
+    public var checkIfHasMorePages: Bool {
+        totalPages > page
     }
 }
 

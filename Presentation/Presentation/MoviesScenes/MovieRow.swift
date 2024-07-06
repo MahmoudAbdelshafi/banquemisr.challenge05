@@ -9,6 +9,9 @@ import SwiftUI
 import Domain
 
 struct MovieRow: View {
+    
+    //MARK: - Properties -
+    
     var movie: Movie
     
     var body: some View {
